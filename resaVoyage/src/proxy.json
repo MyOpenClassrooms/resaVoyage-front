@@ -1,0 +1,8 @@
+{
+    "/microservice-commande/commande/findAll": {
+        "target": "http://localhost:9004",
+        "secure": "false",
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+    }
