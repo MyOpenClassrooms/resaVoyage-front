@@ -8,6 +8,8 @@ import { CommandeComponent } from './commande/commande.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
+import { AventureComponent } from './aventure/aventure.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     CommandeComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    AventureComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
