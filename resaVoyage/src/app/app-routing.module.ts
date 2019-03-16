@@ -4,8 +4,14 @@ import { CommandeComponent } from './commande/commande.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './services/auth-guard.service';
 
+import {CategoryComponent} from "./category/category.component";
+import {AventureComponent} from "./aventure/aventure.component";
+
 const routes: Routes = [
-  { path : 'commande', component : CommandeComponent , canActivate: [AuthGuard]},
+  { path : '', component : AventureComponent},
+  { path : 'commande', component : CommandeComponent},
+  { path : 'aventure', component : AventureComponent},
+  { path : 'category', component : CategoryComponent},
   { path : 'login', component : LoginComponent}
 ];
 

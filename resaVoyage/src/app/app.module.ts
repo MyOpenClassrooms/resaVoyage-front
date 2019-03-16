@@ -16,6 +16,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { CommandeService } from './services/commande.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AventureComponent } from './aventure/aventure.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppComponent,
     CommandeComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    AventureComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
