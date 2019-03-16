@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { apiCommande } from 'src/shared/constant';
+import { apiCommande, apiSessionById } from 'src/shared/constant';
 import { reject } from 'q';
+import { Observable } from 'rxjs';
+import { Commande } from 'src/shared/models/commande';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +16,12 @@ export class CommandeService {
    * Get filleul from API by its CM_ID 
    * @param id cm's id
    */
-  getAllCommande() {
-    /*const headers = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});*/
-    return this.http.get( apiCommande + '/findAll',
-    {
-      
-              headers: new HttpHeaders()
-                /*.set('Access-Control-Allow-Origin', '*')*/
-                .set('Content-Type', 'application/x-www-form-urlencoded')
-               /* .set('Access-Control-Allow-Origin', '*')*/
-                .set('Authorization', 'Basic ' + btoa('test:test123'))
-      })
+  getAllCommande(userId : number): Observable<Commande[]> {
+      return this.http.get<Commande[]>(apiCommande + '/userId/' + userId);
     
   }
-
+  getSessionById(id : number) {
+      return this.http.get(apiSessionById + '/' + id);
+    
+  }
 }

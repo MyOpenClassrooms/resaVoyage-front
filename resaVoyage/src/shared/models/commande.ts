@@ -3,6 +3,6 @@ export class Commande {
     id: number;
     userId: number;
     SessionId : number;
-    date: string;
+    dateCommande: string;
     status: Boolean;
  }
