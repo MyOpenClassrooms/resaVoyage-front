@@ -1,20 +1,20 @@
 <nav class="navbar navbar-expand-lg navStyle">
   <a class="brand-navbar" href="#"><img src="/assets/images/logo.png" alt="Responsive image" height="40px"></a>
   <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
-      <span><i class="fas fa-align-right iconStyle"></i></span>
+      <span><i class="fa fa-align-right iconStyle"></i></span>
   </button>
   <div class="collapse navbar-collapse" id="mainMenu">
-      <div class="collapse navbar-collapse navbar-brand navbar-brand-centered " id="collapsibleNavbar">
+      <div class="navbar-collapse navbar-brand navbar-brand-centered ">
       <ul class="navbar-nav ml-auto navList">
-          <li class="nav-item active"><a href="#" class="nav-link"><i class="fas fa-home"></i>Accueil<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item active"><a href="#"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Accueil</a></li>
           <li class="nav-item">
-              <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i>Aventure</a>
+              <a href="services.html" routerLinkActive="active" class="nav-link">Aventure</a>
           </li>
           <li class="nav-item">
-            <a routerLink="commande" class="nav-link"><i class="fas fa-briefcase"></i>Commande</a>
+            <a routerLink="commande" routerLinkActive="active" class="nav-link">Commande</a>
           </li>
           <li class="nav-item">
-              <a href="contact.html" class="nav-link"><i class="fas fa-phone"></i>Category</a>
+              <a href="contact.html" routerLinkActive="active" class="nav-link">Category</a>
           </li>
           
         <!--   <li class="nav-item">
@@ -22,7 +22,7 @@
         </li> -->
       </ul>
       </div>
-      <div class="collapse navbar-collapse navbar-nav navbar-right" id="collapsibleNavbar">
+      <div class="navbar-collapse navbar-nav navbar-right" id="collapsibleNavbar">
         <div class="text" *ngIf="isAUth == true" ><b> Bonjour, </b> {{user.lastname}}  {{user.firstname}} |</div> 
         <button *ngIf="isAUth == true" type="button" (click)="logout()" class="btn btn-default butt"><i class="fa fa-sign-out"></i>Déconnexion</button>
         <button *ngIf="isAUth == false" type="button" [routerLink]="['login']" class="btn btn-default butt"><i class="fa fa-sign-in"></i>Connexion</button>

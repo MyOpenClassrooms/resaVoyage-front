@@ -33,6 +33,7 @@
     -moz-border-radius-topright: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    background-color: #dee2e6d4!important;
     }
     
     .widget .widget-content {
@@ -70,11 +71,15 @@
     border-top-right-radius: 4px;
     -webkit-background-clip: padding-box;
     }
+    .table {
+        color: #495057!important;
+    }
     
     thead {
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
+    background-color: #dee2e6a6!important;
     }
     
     .widget .widget-header h3 {
