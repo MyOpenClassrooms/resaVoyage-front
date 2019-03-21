@@ -2,9 +2,10 @@
 
   <!-- Jumbotron Header -->
   <header class="jumbotron my-4">
-    <h1 class="display-3">LIVE EPIC MOMENTS!</h1>
+
+    <h3 class="display-3">LIVE EPIC MOMENTS!</h3>
     <p class="lead">Réservez parmi 6827 activités d'aventure dans le monde entier !</p>
-    <a href="#" class="btn btn-primary btn-lg">Voir les aventures disponible !</a>
+    <a class="btn btn-primary btn-lg">Voir les aventures disponible !</a>
   </header>
 
   <!-- Page Features -->
@@ -18,7 +19,7 @@
           <p class="card-text">{{avlist.description}}</p>
         </div>
         <div class="card-footer">
-          <a href="#" class="btn btn-primary">Voir details</a>
+          <a class="btn btn-primary" [routerLink]= "['detailAventure', avlist.id]">Voir details</a>
         </div>
       </div>
     </div>

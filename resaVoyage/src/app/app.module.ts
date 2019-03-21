@@ -18,10 +18,11 @@ import { CommandeService } from './services/commande.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AventureComponent } from './aventure/aventure.component';
 import { CategoryComponent } from './category/category.component';
-import { PaymentComponent } from './payment/payment.component';
-import { PaymentService } from './services/payment.service';
+import { DetailAventureComponent } from './detail-aventure/detail-aventure.component';
+import {AddCommandeComponent} from './add-commande/add-commande.component';
+import {PaymentComponent} from './payment/payment.component';
+import {PaymentService} from './services/payment.service';
 import { FormsModule } from '@angular/forms';
-import { AddCommandeComponent } from './add-commande/add-commande.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { AddCommandeComponent } from './add-commande/add-commande.component';
     LoginComponent,
     AventureComponent,
     CategoryComponent,
+    DetailAventureComponent,
     PaymentComponent,
     AddCommandeComponent
   ],
