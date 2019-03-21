@@ -1,55 +1,32 @@
 
+<div class="container">
+
+  <header class="jumbotron my-4">
+    <h1 class="display-3">{{aventure.title}}</h1>
+    <img src="{{aventure.image}}" class="img-fluid" alt="">
+
+    <p class="lead">
+      <span>Prix : {{aventure.price}} €</span>
+    </p>
+
+    <p class="lead font-weight-bold">Description : </p>
+
+    <p>{{aventure.description}}</p>
+
+    <form class="d-flex justify-content-left">
+      <!-- Default input -->
+      <button class="btn btn-primary btn-md my-0 p" type="submit">Commander
+        <i class="fas fa-shopping-cart ml-1"></i>
+      </button>
+
+    </form>
+
+  </header>
+
+  <hr>
+
+  <h3 class="display-3">Commentaires :</h3>
 
 
-<!--Main layout-->
-<main class="mt-5 pt-4">
-  <div class="container dark-grey-text mt-5">
 
-    <!--Grid row-->
-    <div class="row wow fadeIn">
-
-      <!--Grid column-->
-      <div class="col-md-6 mb-4">
-        <p>{{aventure.title}}</p>
-        <img src="{{aventure.image}}" class="img-fluid" alt="">
-
-      </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-md-6 mb-4">
-
-        <!--Content-->
-        <div class="p-4">
-
-          <p class="lead">
-            <span>Prix : {{aventure.price}}</span>
-          </p>
-
-          <p class="lead font-weight-bold">Description</p>
-
-          <p>{{aventure.description}}</p>
-
-          <form class="d-flex justify-content-left">
-            <!-- Default input -->
-            <button class="btn btn-primary btn-md my-0 p" type="submit" [routerLink]= "['commande', aventure.id]">Commander
-              <i class="fas fa-shopping-cart ml-1"></i>
-            </button>
-
-          </form>
-
-        </div>
-        <!--Content-->
-
-      </div>
-      <!--Grid column-->
-
-    </div>
-    <!--Grid row-->
-
-
-  </div>
-</main>
-<!--Main layout-->
-
-
+</div>

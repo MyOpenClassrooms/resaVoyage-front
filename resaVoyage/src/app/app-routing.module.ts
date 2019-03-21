@@ -12,7 +12,7 @@ import { AddCommandeComponent } from './add-commande/add-commande.component';
 const routes: Routes = [
   { path : '', component : AventureComponent},
   { path : 'aventure', component : AventureComponent},
-  { path : 'detailAventure', component : DetailAventureComponent},
+  { path : 'aventure/:id', component : DetailAventureComponent},
   { path : 'addCommande', component : AddCommandeComponent},
   { path : 'commande', component : CommandeComponent , canActivate: [AuthGuard]},
   { path : 'commande/payment/:id', component : PaymentComponent },
