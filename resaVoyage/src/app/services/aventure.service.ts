@@ -15,8 +15,6 @@ export class AventureService {
   constructor(private http: HttpClient) {}
 
   getAllAventures(): Observable<Aventure[]> {
-    /*const headers = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});*/
-
     return this.http.get<Aventure[]>( apiAventure + '/aventure/getAll');
   }
 
