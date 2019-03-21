@@ -19,7 +19,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AventureComponent } from './aventure/aventure.component';
 import { CategoryComponent } from './category/category.component';
 import { DetailAventureComponent } from './detail-aventure/detail-aventure.component';
+import {AddCommandeComponent} from './add-commande/add-commande.component';
+import {PaymentComponent} from './payment/payment.component';
+import {PaymentService} from './services/payment.service';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     AventureComponent,
     CategoryComponent,
-    DetailAventureComponent
+    DetailAventureComponent,
+    PaymentComponent,
+    AddCommandeComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,7 @@ import { FormsModule } from '@angular/forms';
     AuthGuard,
     AuthService,
     CommandeService,
+    PaymentService,
      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   /*   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  */
   ],

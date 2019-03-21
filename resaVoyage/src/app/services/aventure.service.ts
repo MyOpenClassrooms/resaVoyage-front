@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {apiAventure, apiAventureById, apiCommande} from 'src/shared/constant';
-import {Observable} from "rxjs";
+
+import {apiAventure, apiAventureById, apiSessionById, apiAventureBySession} from 'src/shared/constant';
+import { Observable } from 'rxjs';
+import { Session } from 'src/shared/models/session';
+import {Commande} from "../../shared/models/commande";
 import {Aventure} from "../../shared/models/aventure";
 
 @Injectable({
@@ -18,5 +21,12 @@ export class AventureService {
   getAventureById(id:number):Observable<Aventure>{
     return this.http.get<Aventure>(apiAventureById + '/aventure/' + id);
   }
+  getAventureBySession(id: number) {
+    return this.http.get(apiAventureBySession + '/getBySession/' + id);
 
+  }
+  getSessionById(id: number): Observable<Session> {
+    return this.http.get<Session>(apiSessionById + '/session/' + id);
+
+  }
 }

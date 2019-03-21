@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { apiCommande, apiSessionById } from 'src/shared/constant';
+import { apiCommande, apiSessionById, apiCommandeById, apiUpdateCommande } from 'src/shared/constant';
 import { reject } from 'q';
 import { Observable } from 'rxjs';
 import { Commande } from 'src/shared/models/commande';
@@ -10,18 +10,18 @@ import { Commande } from 'src/shared/models/commande';
 })
 export class CommandeService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  /**
-   * Get filleul from API by its CM_ID 
-   * @param id cm's id
-   */
-  getAllCommande(userId : number): Observable<Commande[]> {
-      return this.http.get<Commande[]>(apiCommande + '/userId/' + userId);
-    
+  getAllCommande(userId: number): Observable<Commande[]> {
+    return this.http.get<Commande[]>(apiCommande + '/userId/' + userId);
+
   }
-  getSessionById(id : number) {
-      return this.http.get(apiSessionById + '/' + id);
-    
+
+  getCommandeById(id: number): Observable<Commande> {
+    return this.http.get<Commande>(apiCommandeById + '/findCommandById/' + id);
+  }
+
+  updateCommande(id, commande): Observable<Commande> {
+    return this.http.put<Commande>(apiUpdateCommande + '/update/' + id, commande);
   }
 }

@@ -16,17 +16,19 @@
             <table class="table table-striped table-bordered" >
               <thead>
                 <tr>
-                  <th>Session</th>
+                  <th>Aventure</th>
+                  <th>Prix</th>
                   <th>Date commande</th>
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody *ngFor="let c of allCommandes">
+              <tbody *ngFor="let c of commandesByUser">
                 <tr>
-                  <td>{{c.sessionId}}</td>
+                  <td>{{c.aventure}}</td>
+                  <td>{{c.prix}}</td>
                   <td>{{c.date | date: 'dd/MM/yyyy'}}</td>
                   <td *ngIf="c.status == true">Payé </td>
-                  <td *ngIf="c.status == false">Non payé <button class="btn btn-primary" >Payer</button></td>
+                  <td *ngIf="c.status == false">Non payé <a class="btn btn-primary" [routerLink]="['payment', c.id]" >Payer</a></td>
                 </tr>
      
               </tbody>
