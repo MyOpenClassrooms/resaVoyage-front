@@ -8,6 +8,7 @@ import {AventureComponent} from "./aventure/aventure.component";
 import {DetailAventureComponent} from "./detail-aventure/detail-aventure.component";
 import { PaymentComponent } from './payment/payment.component';
 import { AddCommandeComponent } from './add-commande/add-commande.component';
+import { CommentaireComponent } from './commentaire/commentaire.component';
 
 const routes: Routes = [
   { path : '', component : AventureComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path : 'commande', component : CommandeComponent , canActivate: [AuthGuard]},
   { path : 'commande/payment/:id', component : PaymentComponent },
   { path : 'category', component : CategoryComponent , canActivate: [AuthGuard]},
-  { path : 'login', component : LoginComponent}
+  { path : 'login', component : LoginComponent},
+  {path: 'commentaire/:id', component: CommentaireComponent}
 ];
 
 @NgModule({

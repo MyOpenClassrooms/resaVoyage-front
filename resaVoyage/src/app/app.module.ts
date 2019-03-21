@@ -23,6 +23,10 @@ import {AddCommandeComponent} from './add-commande/add-commande.component';
 import {PaymentComponent} from './payment/payment.component';
 import {PaymentService} from './services/payment.service';
 import { FormsModule } from '@angular/forms';
+import { CommentaireComponent } from './commentaire/commentaire.component';
+import { CommentaireService } from './services/commentaire.service';
+import { AddComponent } from './add/add.component';
+
 
 
 @NgModule({
@@ -35,7 +39,9 @@ import { FormsModule } from '@angular/forms';
     CategoryComponent,
     DetailAventureComponent,
     PaymentComponent,
-    AddCommandeComponent
+    AddCommandeComponent,
+    CommentaireComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,8 @@ import { FormsModule } from '@angular/forms';
     CommandeService,
     PaymentService,
      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-  /*   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },  */
+    CommentaireService,
+    
   ],
   bootstrap: [AppComponent]
 })

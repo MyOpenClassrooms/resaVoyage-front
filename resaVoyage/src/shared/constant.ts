@@ -16,5 +16,7 @@ export const apiCategory = apiPrefix + '/category';
 export const apiAventureById = apiPrefix + '/aventure';
 export const apiPayment = apiPrefix + '/paiement';
 
+export const apiCommentaire= apiPrefix + '/commentaire';
+
 
 
