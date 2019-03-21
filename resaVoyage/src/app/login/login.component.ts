@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
         private authService: AuthService
     ) {  // redirect to home if already logged in     
 
-        if (this.authService.currentUserValue) {
+      /*   if (this.authService.currentUserValue) {
             this.router.navigateByUrl('/commande');
-        }
+        } */
     }
 
     ngOnInit() {
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         });
   
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/commande';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
     
 

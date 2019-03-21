@@ -20,11 +20,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    if (this.authService.currentUser){
-      this.isAUth = true;
-      
-    }
-   
+ 
     console.log("isAUthIn ", this.isAUth);
     console.log("username ", sessionStorage.getItem('username'));
     this.username = sessionStorage.getItem('username');
@@ -39,8 +35,8 @@ export class HeaderComponent implements OnInit {
   userByUsername(username: string) {
   return  this.authService.userByUsername(username).subscribe(user => {
     this.user = user;  
+    this.isAUth = true;
     sessionStorage.setItem('idUser', JSON.stringify(user.idutilisateur));
-    console.log("iduserdegj", sessionStorage.getItem('idUser'));
     sessionStorage.setItem('user', this.user);
         },
         (error) => {
@@ -49,11 +45,10 @@ export class HeaderComponent implements OnInit {
     )}
 
   logout() {
-   
+    this.isAUth = false;
     this.authService.logout();
     this.router.navigateByUrl('/login');
-    this.isAUth = false;
-    console.log("isAUthOut ", this.isAUth);
+    console.log("isAUth", this.isAUth);
 
   }
 }

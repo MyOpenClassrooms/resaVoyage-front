@@ -11,15 +11,7 @@ export class CategoryService {
 
   getAllCategories() {
     /*const headers = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});*/
-    return this.http.get( apiCategory + '/getAll',
-      {
-
-        headers: new HttpHeaders()
-        /*.set('Access-Control-Allow-Origin', '*')*/
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-          /* .set('Access-Control-Allow-Origin', '*')*/
-          //.set('Authorization', 'Basic ' + btoa('test:test123'))
-      })
+    return this.http.get( apiCategory + '/category/getAll')
 
   }
 

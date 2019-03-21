@@ -7,20 +7,17 @@
       <div class="navbar-collapse navbar-brand navbar-brand-centered ">
       <ul class="navbar-nav ml-auto navList">
 
-          <li class="nav-item active"><a routerLink="aventure"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Accueil</a></li>
+          <li class="nav-item active"><a routerLink="/"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Accueil</a></li>
        
           <li class="nav-item">
-            <a routerLink="commande" routerLinkActive="active" class="nav-link">Commande</a>
+            <a [routerLink]="['commande']" routerLinkActive="active" class="nav-link">Commande</a>
           </li>
           <li class="nav-item">
-
               <a routerLink="category" routerLinkActive="active" class="nav-link">Category</a>
-
           </li>
-          
-        <!--   <li class="nav-item">
-            <button (click)="logout()" class="nav-link"><i class="fas fa-users"></i>Deconnexion</button>
-        </li> -->
+          <li class="nav-item">
+              <a routerLink="addCommande" routerLinkActive="active" class="nav-link">Ajouter Commande</a>
+          </li>
       </ul>
       </div>
       <div class="navbar-collapse navbar-nav navbar-right" id="collapsibleNavbar">

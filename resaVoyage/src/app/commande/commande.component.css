@@ -74,7 +74,9 @@
     .table {
         color: #495057!important;
     }
-    
+    .mt-4, .my-4 {
+        margin-top: 7.5rem !important;
+    }
     thead {
     display: table-header-group;
     vertical-align: middle;
