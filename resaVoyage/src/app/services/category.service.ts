@@ -10,11 +10,8 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   getAllCategories() {
-    return this.http.get( apiCategory + '/getAll',
-      {
-        headers: new HttpHeaders()
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-      })
+    /*const headers = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});*/
+    return this.http.get( apiCategory + '/getAll')
 
   }
 
