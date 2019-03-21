@@ -10,13 +10,11 @@
 export class AventureComponent implements OnInit {
   public allAventures:Aventure[] = [];
   public aventure:Aventure;
-  public aventureTemp:Aventure;
   public aventureList:Aventure[] = [];
   constructor(private aventureService: AventureService) { }
 
   ngOnInit() {
     this.getAllAventures();
-
   }
 
   getAllAventures(){
@@ -26,8 +24,6 @@ export class AventureComponent implements OnInit {
       for (let i=1; i<5; i++){
         this.aventureList.push(this.allAventures[i]);
       }
-      console.log("tessssssssst ",  this.aventureList);
-
       console.log("tessssssssst ",  this.allAventures );
     });
   }

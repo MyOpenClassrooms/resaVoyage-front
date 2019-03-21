@@ -18,7 +18,8 @@ import { CommandeService } from './services/commande.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AventureComponent } from './aventure/aventure.component';
 import { CategoryComponent } from './category/category.component';
-
+import { DetailAventureComponent } from './detail-aventure/detail-aventure.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CategoryComponent } from './category/category.component';
     HeaderComponent,
     LoginComponent,
     AventureComponent,
-    CategoryComponent
+    CategoryComponent,
+    DetailAventureComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { CategoryComponent } from './category/category.component';
     BrowserAnimationsModule,
     MatCardModule,
     AngularFontAwesomeModule,
+    FormsModule
   ],
   providers: [ 
     AuthGuard,

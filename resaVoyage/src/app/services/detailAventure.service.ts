@@ -7,13 +7,9 @@ import {Aventure} from "../../shared/models/aventure";
 @Injectable({
   providedIn: 'root'
 })
-export class AventureService {
+export class DetailAventureService {
 
   constructor(private http: HttpClient) {}
-
-  getAllAventures(): Observable<Aventure[]> {
-    return this.http.get<Aventure[]>( apiAventure + '/aventure/getAll');
-  }
 
   getAventureById(id:number):Observable<Aventure>{
     return this.http.get<Aventure>(apiAventureById + '/aventure/' + id);
