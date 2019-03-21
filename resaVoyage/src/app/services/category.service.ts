@@ -11,7 +11,7 @@ export class CategoryService {
 
   getAllCategories() {
     /*const headers = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});*/
-    return this.http.get( apiCategory + '/category/getAll')
+    return this.http.get( apiCategory + '/getAll')
 
   }
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
 import { first } from 'rxjs/operators';
 import { User } from '../models/user';
+import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { User } from '../models/user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isAUth = false;
+  isAUth;
   user ;
   nom;
   prenom;
@@ -20,35 +21,38 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
- 
-    console.log("isAUthIn ", this.isAUth);
+   
+    this.isLoggIn();
+    console.log("isAUth ", this.isAUth);
     console.log("username ", sessionStorage.getItem('username'));
     this.username = sessionStorage.getItem('username');
     this.userByUsername(this.username);
     this.user = sessionStorage.getItem('user');
-    console.log("utilisateurdebut",  this.user);
-   /*  this.prenom = sessionStorage.getItem('prenom');
-    this.id = sessionStorage.getItem('id'); */
-   
   
   }
   userByUsername(username: string) {
   return  this.authService.userByUsername(username).subscribe(user => {
     this.user = user;  
-    this.isAUth = true;
+  if (this.user != null){
     sessionStorage.setItem('idUser', JSON.stringify(user.idutilisateur));
     sessionStorage.setItem('user', this.user);
+  }
         },
         (error) => {
           console.log(error);
         }
     )}
 
-  logout() {
-    this.isAUth = false;
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
-    console.log("isAUth", this.isAUth);
+  isLoggIn(){
+if (localStorage.getItem('currentUser') != null){
+  return this.isAUth = true;
+} else 
+return this.isAUth = false;
+  }
 
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['login']);
+    
   }
 }

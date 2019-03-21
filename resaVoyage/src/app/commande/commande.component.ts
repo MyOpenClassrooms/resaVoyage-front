@@ -7,6 +7,7 @@ import { AventureService } from '../services/aventure.service';
 import { Session } from 'src/shared/models/session';
 import { map } from 'rxjs/operators';
 interface ItemCommande {
+  id;
   aventure;
   date;
   status;
@@ -26,6 +27,7 @@ export class CommandeComponent implements OnInit {
   userId;
   tempList = [];
   private itemCommande: ItemCommande = {
+    id :'',
     aventure : '',
     date:"",
     status: "",
@@ -37,10 +39,7 @@ export class CommandeComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCommande( JSON.parse(sessionStorage.getItem('idUser')));
-    this.getSessionById(4);
-   
- 
-   
+   // this.getSessionById(4);
    /*  this.session = this.getSessionById(this.user);
     console.log("ussssss ",  this.user.idutilisateur ); */
 
@@ -59,11 +58,13 @@ export class CommandeComponent implements OnInit {
       this.session = res;
       this.sessions.push(this.session);
       this.itemCommande= {
+        id: '',
         aventure : '',
         date:"",
         status: "",
         prix:"",
       };
+      this.itemCommande.id = commande.id;
       this.itemCommande.date = commande.date;
       this.itemCommande.status = commande.status;
       this.itemCommande.aventure = this.session.aventure.title;

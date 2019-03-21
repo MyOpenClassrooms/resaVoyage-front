@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     errorMessage: string;
-
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -42,7 +41,7 @@ export class LoginComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
 
-    onSubmit() {
+    login() {
         this.submitted = true;
 
        /*  // stop here if form is invalid
@@ -86,5 +85,6 @@ export class LoginComponent implements OnInit {
 
     logout() {
         this.authService.logout();
+        
     }
 }
