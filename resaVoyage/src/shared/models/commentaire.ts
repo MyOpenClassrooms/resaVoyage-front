@@ -4,5 +4,4 @@ export class Commentaire {
     idaventure: number;
     content: string;
     date: Date;
-    name: String;
   }
