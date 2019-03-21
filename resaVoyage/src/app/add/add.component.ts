@@ -23,7 +23,7 @@ export class AddComponent implements OnInit {
       idutilisateur : null,
       idaventure : null,
       content : '',
-      publication : null 
+      date : null
     }
 
   }
