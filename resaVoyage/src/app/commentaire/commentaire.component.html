@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 reviews">
+ 
+            <h4> LES INFORMATIONS DE L'AVENTURE </h4>
+            <h4>{{commentaire.idutilisateur}}</h4>
+            <div class="button-row">
+              <a mat-flat-button color="primary" [routerLink]="['/category']">test</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                  <div class=" col-lg-8 col-lg-offset-2 col-lg-offset-2">
+                  
+                            <div class="form-group">
+                           
+                      <h6>Titre de l'aventure</h6>	<label   for="nom"  tabindex="1" class="form-control" >ggg</label>
+                      
+                      <h6>Description de l'aventure</h6>	<label for="nom"  tabindex="1" class="form-control" >aaa</label>
+                      <h6>Location de l'aventure</h6>	<label for="nom"  tabindex="1" class="form-control" >aaa</label>
+                      <h6>Prix de l'aventure</h6>	<label for="nom"  tabindex="1" class="form-control" >xxxx</label>
+                      
+                           </div>
+                           </div>
+                           </div>
+                           </div>
+
+ 
+            
+          </div>
+      <div class="col-md-6 col-sm-10 col-sm-offset-1" id="logout">
+          
+              <h4 class="titre">Laissez un commentaire</h4>
+              
+         
+
+          <div class="comment-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+                <br><li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize"><span>Add comment</span></h4></a></li>
+               
+            </ul>            
+            <div class="tab-content">
+                <div class="tab-pane active" id="comments-logout">                
+                    <ul class="media-list">
+                      <li class="media">
+                        <div class="media-body">
+                          <div class="well well-lg" *ngFor="let c of allComments">
+                              <h4  class="media-heading text-uppercase reviews">{{c.name}} </h4>
+                            
+                              <p class="media-comment">
+                               {{c.content}} 
+  
+                              </p>
+                              <p class="reviews">
+                                {{c.date |date:short}}
+                              </p>
+                              <hr>
+                              
+                          </div> 
+
+
+                          
+
+
+                          </div>
+                          </li>
+                          </ul>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                          <app-add></app-add>
+                          </div>
+                          </div>
+                          
+                        
+               
+
+
+
+                      
+                          
+                        
