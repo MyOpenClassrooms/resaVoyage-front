@@ -1,52 +1,25 @@
 <div class="container">
     <div class="row">
+        <div class="col-md-6 col-sm-10 col-sm-offset-1" id="logout">
+            <h4 class="titre">Commentaires</h4>
+            <div class="media comment-box" *ngFor="let c of allComments">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{c.idutilisateur}} <h6 class="reviews">
+                            {{c.date |date:short}}
+                        </h6>
+                    </h4>
+                    <p>{{c.content}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-10 col-sm-offset-1" id="logout">
 
-      <div class="col-md-6 col-sm-10 col-sm-offset-1" id="logout">
-          
-              <h4 class="titre">Laissez un commentaire</h4>
-              
-         
-
-          <div class="comment-tabs">
-
-            <div class="tab-content">
-                <div class="tab-pane active" id="comments-logout">                
-                    <ul class="media-list">
-                      <li class="media">
-                        <div class="media-body">
-                          <div class="well well-lg" *ngFor="let c of allComments">
-                              <h4  class="media-heading text-uppercase reviews">{{c.name}} </h4>
-                            
-                              <p class="media-comment">
-                               {{c.content}} 
-  
-                              </p>
-                              <p class="reviews">
-                                {{c.date |date:short}}
-                              </p>
-                              <hr>
-                              
-                          </div> 
-
-
-                          
-
-
-                          </div>
-                          </li>
-                          </ul>
-                          </div>
-                          </div>
-                          </div>
-                          </div>
-                          <app-add></app-add>
-                          </div>
-                          </div>
-                          
-                        
-               
-
-
-
-                      
-                          
+            <h4 class="titre">Laissez un commentaire</h4>
+            <app-add></app-add>
+        </div>
+    </div>      
