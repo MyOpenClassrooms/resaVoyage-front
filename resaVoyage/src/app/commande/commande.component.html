@@ -28,7 +28,7 @@
                   <td>{{c.prix}}</td>
                   <td>{{c.date | date: 'dd/MM/yyyy'}}</td>
                   <td *ngIf="c.status == true">Payé </td>
-                  <td *ngIf="c.status == false">Non payé <a class="btn btn-primary" [routerLink]="['payment', c.id]" >Payer</a></td>
+                  <td *ngIf="c.status == false">Non payé <a class="btn btn-primary" [routerLink]="['/payment/commande', c.id]" >Payer</a></td>
                 </tr>
      
               </tbody>

@@ -5,10 +5,13 @@
 .jumbotron {
     color: #343a40;
     height: 200px;
-    background-color: #adb5bdd9;
+    background-color: #dee2e6b8;
 }
 .display-3 {
     font-size: 1.9rem!important;
     font-weight: 500!important;
     margin-top: -45px;
+}
+.card {
+    background-color: #dee2e6b8!important;
 }

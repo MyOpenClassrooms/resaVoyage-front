@@ -45,7 +45,7 @@ export class CommandeComponent implements OnInit {
 
   }
   btnClick= function () {
-    this.router.navigate(['payment'], { queryParams: { id: '2'}});
+    this.router.navigate(['/commande'], { queryParams: { id: '2'}});
 }
 /**
  * 
