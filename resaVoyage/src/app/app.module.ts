@@ -25,8 +25,8 @@ import {PaymentService} from './services/payment.service';
 import { FormsModule } from '@angular/forms';
 import { CommentaireComponent } from './commentaire/commentaire.component';
 import { CommentaireService } from './services/commentaire.service';
-import { AddComponent } from './add/add.component';
 import {AventureByCatComponent, TruncatePipe} from './aventure-by-cat/aventure-by-cat.component';
+
 
 
 @NgModule({
@@ -41,9 +41,9 @@ import {AventureByCatComponent, TruncatePipe} from './aventure-by-cat/aventure-b
     PaymentComponent,
     AddCommandeComponent,
     CommentaireComponent,
-    AddComponent,
     AventureByCatComponent,
     TruncatePipe
+
   ],
   imports: [
     BrowserModule,

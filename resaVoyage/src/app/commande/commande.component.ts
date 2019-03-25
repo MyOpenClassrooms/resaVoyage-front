@@ -20,97 +20,97 @@ interface ItemCommande {
 })
 export class CommandeComponent implements OnInit {
   allCommandes: Commande[] = [];
-  public commandesByUser:  Array<ItemCommande> = [];
+  public commandesByUser: Array<ItemCommande> = [];
   sessions: Session[] = [];
   session: Session;
   user;
   userId;
   tempList = [];
   private itemCommande: ItemCommande = {
-    id :'',
-    aventure : '',
-    date:"",
+    id: '',
+    aventure: '',
+    date: "",
     status: "",
-    prix:"",
+    prix: "",
   };
   public id: number;
   constructor(private commandeService: CommandeService, private aventureService: AventureService,
-    private router: Router,private route: ActivatedRoute) { }
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getAllCommande( JSON.parse(sessionStorage.getItem('idUser')));
-   // this.getSessionById(4);
-   /*  this.session = this.getSessionById(this.user);
-    console.log("ussssss ",  this.user.idutilisateur ); */
+    this.getAllCommande(JSON.parse(sessionStorage.getItem('idUser')));
+    // this.getSessionById(4);
+    /*  this.session = this.getSessionById(this.user);
+     console.log("ussssss ",  this.user.idutilisateur ); */
 
   }
-  btnClick= function () {
-    this.router.navigate(['payment'], { queryParams: { id: '2'}});
-}
-/**
- * 
- */
-  getAllCommande(UserId : number) {
+  btnClick = function () {
+    this.router.navigate(['/commande'], { queryParams: { id: '2' } });
+  }
+  /**
+   * 
+   */
+  getAllCommande(UserId: number) {
     this.commandeService.getAllCommande(UserId).pipe(first()).subscribe(commandes => {
-    this.allCommandes = commandes;
-     commandes.forEach(commande => {
-      this.aventureService.getSessionById(commande.sessionId).pipe(first()).subscribe(res => {
-      this.session = res;
-      this.sessions.push(this.session);
-      this.itemCommande= {
-        id: '',
-        aventure : '',
-        date:"",
-        status: "",
-        prix:"",
-      };
-      this.itemCommande.id = commande.id;
-      this.itemCommande.date = commande.date;
-      this.itemCommande.status = commande.status;
-      this.itemCommande.aventure = this.session.aventure.title;
-      this.itemCommande.prix = this.session.aventure.price;
-      this.commandesByUser.push(this.itemCommande);
-     
-  });
-
-});
-   
-
-
-        /*  for(let i =0 ; i < this.allCommandes.length; i++){  
-           this.itemCommande= {
-            aventure : '',
-            date:"",
+      this.allCommandes = commandes;
+      commandes.forEach(commande => {
+        this.aventureService.getSessionById(commande.sessionId).pipe(first()).subscribe(res => {
+          this.session = res;
+          this.sessions.push(this.session);
+          this.itemCommande = {
+            id: '',
+            aventure: '',
+            date: "",
             status: "",
-            prix:"",
+            prix: "",
           };
-            this.itemCommande.date = this.allCommandes[i].date;
-            this.itemCommande.status = this.allCommandes[i].status;
-            this.commandesByUser.push(this.itemCommande);
-        }
-       */
-        console.log("commandesByUser  ", this.commandesByUser);
-  });
+          this.itemCommande.id = commande.id;
+          this.itemCommande.date = commande.date;
+          this.itemCommande.status = commande.status;
+          this.itemCommande.aventure = this.session.aventure.title;
+          this.itemCommande.prix = this.session.aventure.price;
+          this.commandesByUser.push(this.itemCommande);
 
- 
- 
- 
+        });
+
+      });
+
+
+
+      /*  for(let i =0 ; i < this.allCommandes.length; i++){  
+         this.itemCommande= {
+          aventure : '',
+          date:"",
+          status: "",
+          prix:"",
+        };
+          this.itemCommande.date = this.allCommandes[i].date;
+          this.itemCommande.status = this.allCommandes[i].status;
+          this.commandesByUser.push(this.itemCommande);
+      }
+     */
+      console.log("commandesByUser  ", this.commandesByUser);
+    });
+
+
   }
   getCommandeById(id: number) {
     const commande = this.allCommandes.find(
       (s) => {
-        return s.id === id; 
-      
-      }  
-    );
-   sessionStorage.setItem('commande', JSON.stringify(commande));
-    return commande;
-}
-  getSessionById(id : number) {
-  return this.aventureService.getSessionById(id).pipe(first()).subscribe(res => {
-    this.session = res;
-    
-});
+        return s.id === id;
 
-}
+      }
+    );
+    sessionStorage.setItem('commande', JSON.stringify(commande));
+    return commande;
+  }
+  getSessionById(id: number) {
+    return this.aventureService.getSessionById(id).pipe(first()).subscribe(res => {
+      this.session = res;
+
+    });
+
+  }
+
+
 }

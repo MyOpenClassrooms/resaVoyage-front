@@ -1,3 +1,5 @@
+import { Session } from "./session";
+
 export class Aventure {
   id: number;
   title: string;
@@ -6,5 +8,6 @@ export class Aventure {
   location: string;
   price: number;
   image: string;
+  sessions: Session[];
   category_id: number;
 }

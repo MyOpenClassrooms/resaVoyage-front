@@ -5,10 +5,10 @@ export class Commande {
     userId: number;
     session : Session;
     sessionId : number;
-    date: string;
+    date: Date;
     status: Boolean;
 
-    constructor($id?: number,$userId?: number,$session?: Session, $sessionid?: number, $dateCommande?: string, $status?: Boolean){
+    constructor($id?: number,$userId?: number,$session?: Session, $sessionid?: number, $dateCommande?: Date, $status?: Boolean){
       this.id = $id;
       this.userId = $userId;
       this.session = $session;

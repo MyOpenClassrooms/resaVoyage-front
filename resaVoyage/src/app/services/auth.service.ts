@@ -36,6 +36,11 @@ export class AuthService {
   userByUsername(username: string) : Observable<User> {
     return this.http.get<User>(apiUserByusername + '/utilisateur/username/' + username);
   }
+
+  userByUserid(idutilisateur: number) : Observable<User> {
+    return this.http.get<User>(apiUserByusername + '/utilisateur/id/' + idutilisateur);
+  }
+
   logout() {
     // remove user from local storage to log user out   
     localStorage.removeItem('currentUser');

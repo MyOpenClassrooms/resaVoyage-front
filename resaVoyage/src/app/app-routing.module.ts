@@ -14,12 +14,12 @@ import {AventureByCatComponent} from "./aventure-by-cat/aventure-by-cat.componen
 const routes: Routes = [
   { path : '', component : AventureComponent},
   { path : 'aventure', component : AventureComponent},
-  { path : 'aventure/:id', component : DetailAventureComponent},
+  { path : 'aventure/:id', component : DetailAventureComponent, canActivate: [AuthGuard]},
   { path : 'aventureByCat/:id', component : AventureByCatComponent},
-  { path : 'addCommande', component : AddCommandeComponent},
+  { path : 'addCommande/:id', component : AddCommandeComponent, canActivate: [AuthGuard]},
   { path : 'commande', component : CommandeComponent , canActivate: [AuthGuard]},
-  { path : 'commande/payment/:id', component : PaymentComponent },
-  { path : 'category', component : CategoryComponent , canActivate: [AuthGuard]},
+  { path : 'payment/commande/:id', component : PaymentComponent },
+  { path : 'category', component : CategoryComponent },
   { path : 'login', component : LoginComponent},
   {path: 'commentaire/:id', component: CommentaireComponent}
 ];
