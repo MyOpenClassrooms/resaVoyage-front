@@ -4,6 +4,7 @@ export const apiPrefix = 'http://localhost:9004';
 export const apiCommande = apiPrefix + '/commande';
 export const apiCommandeById = apiPrefix + '/commande';
 export const apiUpdateCommande = apiPrefix + '/commande';
+export const apiSaveCommande = apiPrefix + '/commande';
 
 export const apiLogin = apiPrefix + '/auth';
 export const ROLE_ADMIN = 'ROLE_admin';

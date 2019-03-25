@@ -55,3 +55,19 @@ border:1px solid #ccc !important;
    background-color: #95c714 !important;
  
 }
+.card-img-top {
+    max-width: 250px;
+    max-height: 200px;
+    margin-left: 85px;
+    border-radius: 15px;
+}
+h4, .h4 {
+    font-size: 1.5rem;
+    margin-left: 80px;
+}
+.card-header {
+    background-color: #adb5bd00!important; 
+}
+.card-footer {
+    background-color: #adb5bd00!important;
+}

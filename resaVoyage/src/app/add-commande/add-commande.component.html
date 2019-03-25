@@ -1,29 +1,25 @@
 <div class="container h-100">
-    <div class="d-flex justify-content-center">
-      <div class="card mt-5 col-md-4 animated bounceInDown myForm">
-        <div class="card-header">
-          <h4>Ajouter commande</h4>
-        </div><form>
+  <div class="d-flex justify-content-center">
+    <div class="card mt-5 col-md-4 animated bounceInDown myForm">
+      <div class="card-header">
+        <h4>{{aventure.title}}</h4>
+        <img class="card-img-top" src="{{aventure.image}}" alt="">
+      </div>
+      <form [formGroup]="commandForm"> 
         <div class="card-body">
-          
-                <div class="form-group">
-              
-                <input type="date" placeholder="Date Commande" class="form-control" />
-              </div>
-              <div class="form-group">
-               
-                  <select class="form-control">
-                      <option> Choisir la Session </option>
-                    </select>
-              </div>
-           
-        
+          <div class="form-group">
+            <div class="alert alert-danger" *ngIf ="sessions == ''">Aucune session disponible pour cette aventure</div>
+            <select class="form-control"  formControlName="sessionId">
+                <option value="" disabled>Choisir une session</option>
+              <option *ngFor="let s of sessions" [ngValue]="s.id"> {{s.startdate  | date: 'dd/MM/yyyy'}} - {{ s.enddate | date: 'dd/MM/yyyy'}} </option>
+            </select>
+          </div>
         </div>
         <div class="card-footer">
-          <a class="btn btn-secondary btn-sm" id="add_more"><i class="fa fa-times"></i> Annuler </a>
-          <button class="btn btn-success btn-sm float-right submit_btn"><i class="fa fa-plus"></i> Commander</button>
+          <a class="btn btn-secondary btn-sm" id="add_more" [routerLink]= "['/aventure', aventure.id]"><i class="fa fa-times"></i> Annuler </a>
+          <button type="submit" *ngIf ="sessions != '' " class="btn btn-success btn-sm float-right submit_btn" (click)="saveCommande()"><i class="fa fa-plus"></i> Commander</button>
         </div>
       </form>
-      </div>
     </div>
-    </div>
+  </div>
+</div>
