@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
                                 break;
                             }
                             case error.status === 504: {
-                                this.errorMessage = 'Veuillez réessayer plutart!';
+                                this.errorMessage = 'Veuillez réessayer plus tart !';
                                 break;
                             }
                             default: {

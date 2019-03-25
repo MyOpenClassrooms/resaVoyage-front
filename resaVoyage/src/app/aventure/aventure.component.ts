@@ -1,6 +1,7 @@
  import { Component, OnInit } from '@angular/core';
  import {AventureService} from "../services/aventure.service";
  import {Aventure} from "../../shared/models/aventure";
+ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-aventure',
@@ -9,9 +10,10 @@
 })
 export class AventureComponent implements OnInit {
   public allAventures:Aventure[] = [];
+  public aventuresByCat:Aventure[] = [];
   public aventure:Aventure;
   public aventureList:Aventure[] = [];
-  constructor(private aventureService: AventureService) { }
+  constructor(private route: ActivatedRoute, private aventureService: AventureService) { }
 
   ngOnInit() {
     this.getAllAventures();
@@ -36,5 +38,7 @@ export class AventureComponent implements OnInit {
 
     });
   }
+
+
 
 }

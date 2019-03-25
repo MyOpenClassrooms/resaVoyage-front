@@ -25,7 +25,8 @@ import {PaymentService} from './services/payment.service';
 import { FormsModule } from '@angular/forms';
 import { CommentaireComponent } from './commentaire/commentaire.component';
 import { CommentaireService } from './services/commentaire.service';
-
+import {AventureByCatComponent, TruncatePipe} from './aventure-by-cat/aventure-by-cat.component';
+import { AllAventureComponent } from './all-aventure/all-aventure.component';
 
 
 
@@ -41,7 +42,10 @@ import { CommentaireService } from './services/commentaire.service';
     PaymentComponent,
     AddCommandeComponent,
     CommentaireComponent,
-   
+    AventureByCatComponent,
+    TruncatePipe,
+    AllAventureComponent
+
   ],
   imports: [
     BrowserModule,

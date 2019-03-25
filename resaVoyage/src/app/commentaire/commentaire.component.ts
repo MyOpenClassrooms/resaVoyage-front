@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 import { first } from 'rxjs/operators';
 import { User } from '../models/user';
 import { FormBuilder } from '@angular/forms';
+import {Session} from "../../shared/models/session";
 interface Comment {
   idcommentaire;
   idaventure;
@@ -46,8 +47,10 @@ export class CommentaireComponent implements OnInit {
 
   };
 
+  aventure:   Aventure = {id: null, title: '', description: '', location: '', price: null, nbparticipant:null, image: '', sessions: null ,category_id: null };
   commentaire: Commentaire = { idcommentaire: null, idutilisateur: null, idaventure: null, content: '', date: null };
   constructor(private route: ActivatedRoute, private aventureService: AventureService, private commentaireService: CommentaireService, private authService: AuthService, private router: Router, private formbulider: FormBuilder) { }
+
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
     this.userByUsername(this.username);
