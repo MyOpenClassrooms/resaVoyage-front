@@ -17,7 +17,6 @@ export class AventureComponent implements OnInit {
 
   ngOnInit() {
     this.getAllAventures();
-    //this.getAventuresByCategory(this.route.snapshot.params['id']);
   }
 
   getAllAventures(){
