@@ -19,11 +19,12 @@ export class PaymentComponent implements OnInit {
   message: string;
   errorMessage: string;
   idCommand: number;
+  prix;
   commandeUpdated: Commande;
   ngOnInit() {
     this.idCommand = this.activatedRoute.snapshot.params['id'];
-    console.log("command_id ", this.idCommand);
-    this.getCommandeById( this.idCommand);
+    this.prix = this.activatedRoute.snapshot.params['prix'];
+    this.getCommandeById(this.idCommand);
   }
   chargeCreditCard() {
     let form = document.getElementsByTagName("form")[0];
@@ -33,20 +34,23 @@ export class PaymentComponent implements OnInit {
       exp_year: form.expYear.value,
       cvc: form.cvc.value
     }, (status: number, response: any) => {
+      if(form.cardNumber.value != '' && form.expMonth.value != '' && form.expYear.value != '' && form.cvc.value != ''){
       if (status === 200) {
         let token = response.id;
-        this.chargeCard(token);
+        this.chargeCard(token, this.prix);
         this.getUpdateCommande(this.idCommand, this.commandeUpdated);
-        console.log("commmdeupdatedcarge credit ",  this.commandeUpdated)
         this.message = `Paiment effectué avec succés ${response.card.id}.`;
+        console.log("message",   this.message)
         form.cardNumber.value = '';
         form.expMonth.value = '';
         form.expYear.value = '';
       } else {
-        this.message = response.error.message;
-        this.errorMessage = this.message;
-        console.log("errorMessage", this.errorMessage);
+       // this.errorMessage = response.error.message;
+        console.log("messageeeeeee error", this.errorMessage);
       }
+    }else {
+      this.errorMessage ="Veuillez renseigner les champs"
+    }
     });
   }
   getCommandeById(id : number) {
@@ -58,14 +62,20 @@ export class PaymentComponent implements OnInit {
   });
   
   }
-  chargeCard(token: string) {
-    return this.paymentService.chargeCard(token).pipe(first()).subscribe(resp => {
+  chargeCard(token: string, montant: string) {
+    return this.paymentService.chargeCard(token, montant).pipe(first()).subscribe(resp => {
       console.log("payementtttt ", resp);
     }, (error) => {
+     /*  if(error.status == 504){
+        this.errorMessage = "Une erreur s'est produite veuillez réessayer plutart"
+      }else if (error.status == 400){
+        this.errorMessage = "Une erreur serveur s'est produite"
+      } */
+
       console.log(error);
       switch (true) {
         case error.status === 400 || error.status === 401: {
-          this.errorMessage = 'Login ou mot de passe incorrect';
+          this.errorMessage = 'Information incorrecte';
           break;
         }
         case error.status === 504: {
@@ -76,7 +86,7 @@ export class PaymentComponent implements OnInit {
           this.errorMessage = 'Erreur de connexion';
           break;
         }
-      }
+      } 
     });
   }
 
@@ -93,8 +103,10 @@ export class PaymentComponent implements OnInit {
     handler.open({
       name: 'Demo Site',
       description: '2 widgets',
-      amount: 5000
+      amount: this.prix,
+      
     });
+    console.log("amount ", this.prix);
   }
  
   

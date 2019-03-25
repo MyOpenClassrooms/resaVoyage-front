@@ -16,7 +16,7 @@ const routes: Routes = [
   { path : 'aventure/:id', component : DetailAventureComponent, canActivate: [AuthGuard]},
   { path : 'addCommande/:id', component : AddCommandeComponent, canActivate: [AuthGuard]},
   { path : 'commande', component : CommandeComponent , canActivate: [AuthGuard]},
-  { path : 'payment/commande/:id', component : PaymentComponent },
+  { path : 'payment/commande/:id/:prix', component : PaymentComponent },
   { path : 'category', component : CategoryComponent },
   { path : 'login', component : LoginComponent},
   {path: 'commentaire/:id', component: CommentaireComponent}

@@ -5,19 +5,21 @@
         <h4>{{aventure.title}}</h4>
         <img class="card-img-top" src="{{aventure.image}}" alt="">
       </div>
-      <form [formGroup]="commandForm"> 
+      <form [formGroup]="f" (ngSubmit)="onFormSubmit(f.value)"> 
         <div class="card-body">
           <div class="form-group">
             <div class="alert alert-danger" *ngIf ="sessions == ''">Aucune session disponible pour cette aventure</div>
             <select class="form-control"  formControlName="sessionId">
                 <option value="" disabled>Choisir une session</option>
-              <option *ngFor="let s of sessions" [ngValue]="s.id"> {{s.startdate  | date: 'dd/MM/yyyy'}} - {{ s.enddate | date: 'dd/MM/yyyy'}} </option>
+              <option *ngFor="let s of sessions;let i=index" [ngValue]="s.id"> Session {{i+1 }} => {{ s.startdate  | date: 'dd/MM/yyyy'}} - {{ s.enddate | date: 'dd/MM/yyyy'}} </option>
             </select>
           </div>
         </div>
+        <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+        <div *ngIf="message" class="alert alert-success">{{message}}</div>
         <div class="card-footer">
-          <a class="btn btn-secondary btn-sm" id="add_more" [routerLink]= "['/aventure', aventure.id]"><i class="fa fa-times"></i> Annuler </a>
-          <button type="submit" *ngIf ="sessions != '' " class="btn btn-success btn-sm float-right submit_btn" (click)="saveCommande()"><i class="fa fa-plus"></i> Commander</button>
+          <a *ngIf="aventure" class="btn btn-secondary btn-sm" id="add_more" [routerLink]= "['/aventure', aventure.id]"><i class="fa fa-times"></i> Annuler </a>
+          <button type="submit" *ngIf ="sessions != '' " class="btn btn-success btn-sm float-right submit_btn" ><i class="fa fa-plus"></i> Commander</button>
         </div>
       </form>
     </div>

@@ -26,6 +26,7 @@ export class CommandeComponent implements OnInit {
   user;
   userId;
   tempList = [];
+  
   private itemCommande: ItemCommande = {
     id: '',
     aventure: '',

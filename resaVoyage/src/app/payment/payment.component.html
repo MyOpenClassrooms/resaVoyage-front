@@ -25,10 +25,12 @@
         </div>
   <div class="card-body p-5">
   <!--  <span class="payment-message alert alert-success">{{message}}</span>  -->
-   <p *ngIf="message" class="alert alert-success payment-message">{{message}}</p>
-<!--    <p  *ngIf="errorMessage !== ''" class="alert alert-danger payment-message">{{errorMessage}}</p>  -->
+ <p>  Montant de la commande : <b>{{ prix}} €</b></p>
+  <form>   
+    <p *ngIf="message" class="alert alert-success payment-message">{{message}}</p>
+ <p  *ngIf="errorMessage" class="alert alert-danger payment-message">{{errorMessage}}</p>
    
-  <form>
+ 
   <div class="form-group">
   <label for="cardNumber">Numéro de carte</label>
   <div class="input-group">
@@ -56,7 +58,8 @@
               <input class="form-control"  placeholder="CVV" name="cvc" required="" type="text">
           </div> <!-- form-group.// -->
       </div>
-  </div> <!-- row.// -->
+  </div> 
+<!-- row.// -->
   <button class="subscribe btn btn-primary btn-block" (click)="chargeCreditCard()" type="button"> Payer  </button>
   </form>
   </div> <!-- card-body.// -->

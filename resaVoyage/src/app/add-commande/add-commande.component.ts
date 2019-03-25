@@ -17,41 +17,71 @@ import { User } from '../models/user';
 })
 export class AddCommandeComponent implements OnInit {
   commandForm: FormGroup;
-  commande : Commande;
+  commande: Commande = { id: null, userId: null, sessionId: null, date: null, status: null };
+  aventure: Aventure = { id: null, title: '', description: '', location: '', price: null, image: '', sessions: null, category_id: null };
   aventureId: number;
   sessions: Session[] = [];
-  aventure: Aventure;
-  user;
+  userId;
+  f: any;   
+  errorMessage: string;
+  message: string;
   constructor(private commandeService: CommandeService, private formBuilder: FormBuilder,
     public activatedRoute: ActivatedRoute, private aventureService: AventureService) { }
 
   ngOnInit() {
     this.commandForm = this.formBuilder.group({
       sessionId: ['', Validators.required]
-  });
+    });
 
-  this.aventureId = this.activatedRoute.snapshot.params['id'];
-  this.aventureService.getAventureById(this.aventureId).pipe(first()).subscribe(aventure => {
-  this.aventure = aventure;
-  this.sessions =  this.aventure.sessions;
-  console.log("aventureeeeeeee ", this.aventure );
-  console.log("sessionnn ",  this.sessions );
- });
+    this.aventureId = this.activatedRoute.snapshot.params['id'];
+    this.aventureService.getAventureById(this.aventureId).pipe(first()).subscribe(aventure => {
+      this.aventure = aventure;
+      this.sessions = this.aventure.sessions;
+      console.log("aventureeeeeeee ", this.aventure);
+      console.log("sessionnn ", this.sessions);
+    });
+
+      this.f = this.formBuilder.group({
+        userId: sessionStorage.getItem('idUser'),
+        sessionId: [''],
+        status: false,
+      date: new Date(),
+    });
+  }
+
+
+  onFormSubmit() {
+     const commande = this.f.value;
+     if (this.f.value.sessionId != ''){
+    
+     this.saveCommande(commande);
+    // console.log("commande to save ",commande);
+     this.f.reset(); 
+     }else {
+      this.errorMessage = "Veuillez choisir une session"
+     }
 
   }
-  get f() { return this.commandForm.controls; }
 
-  saveCommande() {
-  this.user = sessionStorage.getItem('user');
-  console.log("session id ",  this.f.sessionId.value );
-//  this.commande.sessionId = this.f.sessionId.value;
-  this.commande.userId = this.user.id;
-  this.commande.date = new Date();
-  this.commande.status = true;
-  console.log("commande to save ",  this.commande );
-  this.commandeService.saveCommande(this.commande); 
+  saveCommande(commande: Commande) {
+    this.commandeService.saveCommande(commande).subscribe(
+      () => {
 
-    };
+        this.message ="Commande effectuée avec succés"
+        this.errorMessage=null;
+        console.log("commande value",commande);
+      },
+      (error) => {
+        if(error.status == 504){
+          this.errorMessage = "Une erreur s'est produite veuillez réessayer plutart"
+          this.message= null;
+        }else if (error.status == 500){
+          this.errorMessage = "Une erreur serveur s'est produite"
+          this.message= null;
+        }
+       // console.log("errrrrrrrrrrrrror",error);
+      });
 
   }
+}
 

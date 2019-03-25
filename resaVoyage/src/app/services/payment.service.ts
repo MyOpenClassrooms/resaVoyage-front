@@ -11,12 +11,12 @@ export class PaymentService {
   constructor(private http: HttpClient) {}
 
 
-chargeCard(token: string) {
+chargeCard(token: string, montant : string) {
     //const headers = new Headers({'token': token, 'amount': 100});
  return this.http.post(apiPayment + '/charge' , {},  {
               headers: new HttpHeaders()
                 .set('token', token)
-                .set('amount', '100')
+                .set('amount', montant)
       })
       
   }
