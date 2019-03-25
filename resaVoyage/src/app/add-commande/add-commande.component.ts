@@ -18,7 +18,7 @@ import { User } from '../models/user';
 export class AddCommandeComponent implements OnInit {
   commandForm: FormGroup;
   commande: Commande = { id: null, userId: null, sessionId: null, date: null, status: null };
-  aventure: Aventure = { id: null, title: '', description: '', location: '', price: null, image: '', sessions: null, category_id: null };
+  aventure: Aventure = { id: null, title: '', description: '', location: '', price: null,nbparticipant: null, image: '', sessions: null, category_id: null };
   aventureId: number;
   sessions: Session[] = [];
   userId;
