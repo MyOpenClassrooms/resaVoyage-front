@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {apiCommentaire} from 'src/shared/constant';
-import { Observable} from 'rxjs';
+import { apiCommentaire, apiAddCommentaire } from 'src/shared/constant';
+import { Observable } from 'rxjs';
 import { Commentaire } from 'src/shared/models/commentaire';
-import { catchError, tap, map } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
@@ -14,23 +13,22 @@ const httpOptions = {
 })
 export class CommentaireService {
 
-  formData : Commentaire; 
-  
-  constructor(private http: HttpClient) { 
-   
+  formData: Commentaire;
+
+  constructor(private http: HttpClient) {
+
   }
-  
-  getCommentsByAdventure(id : number) : Observable<Commentaire[]>{
+
+  getCommentsByAdventure(id: number): Observable<Commentaire[]> {
     return this.http.get<Commentaire[]>(apiCommentaire + '/idaventure/' + id);
-  
-}
 
-saveCommentaire (commentaire): Observable<Commentaire> {
-  return this.http.post<Commentaire>(apiCommentaire, commentaire, httpOptions);
-}
+  }
 
-postCommentaire(formData: Commentaire){
- return  this.http.post(apiCommentaire+'/commentaire/save', formData);
-}
-  
+
+  saveCommentaire(commentaire: Commentaire): Observable<Commentaire> {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.post<Commentaire>(apiAddCommentaire, commentaire, httpOptions);
+
+  }
+
 }
