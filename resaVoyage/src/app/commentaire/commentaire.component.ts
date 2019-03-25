@@ -29,7 +29,7 @@ export class CommentaireComponent implements OnInit {
   
  
 
-  aventure:   Aventure = {id: null, title: '', description: '', location: '', price: null, image: '', category_id: null };
+  aventure:   Aventure = {id: null, title: '', description: '', location: '', price: null, nbparticipant:null, image: '', category_id: null };
   commentaire: Commentaire = { idcommentaire: null , idutilisateur: null , idaventure: null, content: '', date: null};
   constructor( private route: ActivatedRoute, private aventureService: AventureService, private commentaireService: CommentaireService, private authService: AuthService, private router: Router, private formBuilder: FormBuilder) 
 { }

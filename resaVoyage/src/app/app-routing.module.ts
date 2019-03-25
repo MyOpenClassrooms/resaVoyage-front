@@ -9,11 +9,13 @@ import {DetailAventureComponent} from "./detail-aventure/detail-aventure.compone
 import { PaymentComponent } from './payment/payment.component';
 import { AddCommandeComponent } from './add-commande/add-commande.component';
 import { CommentaireComponent } from './commentaire/commentaire.component';
+import {AventureByCatComponent} from "./aventure-by-cat/aventure-by-cat.component";
 
 const routes: Routes = [
   { path : '', component : AventureComponent},
   { path : 'aventure', component : AventureComponent},
   { path : 'aventure/:id', component : DetailAventureComponent},
+  { path : 'aventureByCat/:id', component : AventureByCatComponent},
   { path : 'addCommande', component : AddCommandeComponent},
   { path : 'commande', component : CommandeComponent , canActivate: [AuthGuard]},
   { path : 'commande/payment/:id', component : PaymentComponent },

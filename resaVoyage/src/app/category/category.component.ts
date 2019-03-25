@@ -20,7 +20,6 @@ export class CategoryComponent implements OnInit {
       this.allCategories = res;
       console.log("tessssssssst ",  this.allCategories );
     });
-
   }
 
 }

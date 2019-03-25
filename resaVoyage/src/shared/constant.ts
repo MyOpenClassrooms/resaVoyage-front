@@ -10,6 +10,7 @@ export const ROLE_ADMIN = 'ROLE_admin';
 export const apiUserByusername = apiPrefix + '/utilisateur';
 export const apiSessionById = apiPrefix + '/aventure'; 
 export const apiAventureBySession = apiPrefix + '/aventure';
+export const apiAventureByCategory = apiPrefix + '/aventure';
 
 export const apiAventure = apiPrefix + '/aventure';
 export const apiCategory = apiPrefix + '/category';
