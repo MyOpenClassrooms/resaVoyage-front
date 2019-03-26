@@ -4,6 +4,8 @@ import {AventureService} from "../services/aventure.service";
 import {Aventure} from "../../shared/models/aventure";
 import {ActivatedRoute} from "@angular/router";
 import { Pipe, PipeTransform } from '@angular/core';
+import { Category } from 'src/shared/models/category';
+import { CategoryService } from '../services/category.service';
 
 
 
@@ -27,11 +29,12 @@ export class TruncatePipe implements PipeTransform {
 })
 export class AventureByCatComponent implements OnInit {
   private aventuresByCat: Aventure[];
-
-  constructor(private aventureService:AventureService, private route: ActivatedRoute,) { }
+  categorie: Category = {  id: null, title: '', description : '', image: '',  keywords: ''};
+  constructor(private aventureService:AventureService,private categoryService:CategoryService, private route: ActivatedRoute,) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.getCategoryById(id);
     this.getAventuresByCategory(id);
 
   }
@@ -39,6 +42,11 @@ export class AventureByCatComponent implements OnInit {
   getAventuresByCategory(id:number){
     return this.aventureService.getAventuresByCategory(id).subscribe((res)=>{
       this.aventuresByCat = res;
+    })
+  }
+  getCategoryById(id:number){
+    return this.categoryService.getCategoryById(id).subscribe((res)=>{
+      this.categorie = res;
     })
   }
 

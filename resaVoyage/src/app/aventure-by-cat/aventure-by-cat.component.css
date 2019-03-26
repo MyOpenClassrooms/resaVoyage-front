@@ -14,7 +14,7 @@ body{background: #24C6DC;  /* fallback for old browsers */
   border-radius: 15px;
   margin: 0 auto 40px;
   /* box-shadow: 10px 13px 0 rgba(0,0,0,0.2); */}
-.listing-block{background:#e9ecefc7;     max-height: 450px; padding-top:20px; overflow-y:scroll;    border-radius: 5px;}
+.listing-block{background:#e9ecefc7;     max-height: 435px; padding-top:20px; overflow-y:scroll;    border-radius: 5px;}
 .slimScrollDiv{width:41%!important;}
 .media {background:#fff; position:relative; margin-bottom:15px;}
 .media img{width:200px;margin:0; height:136px;}
@@ -38,4 +38,8 @@ body{background: #24C6DC;  /* fallback for old browsers */
 .text-center {
   text-align: center !important;
   margin-top: -30px;
+}
+.categorie{
+  color: #007bff;
+  font-size: 45px;
 }

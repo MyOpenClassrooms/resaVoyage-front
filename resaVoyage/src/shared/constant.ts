@@ -24,6 +24,8 @@ export const apiAventureById = apiPrefix + '/aventure';
 
 /**** API Category ****/
 export const apiCategory = apiPrefix + '/category';
+export const apiCategoryById = apiPrefix + '/category';
+
 
 /**** API Paiement ****/
 export const apiPayment = apiPrefix + '/paiement';
