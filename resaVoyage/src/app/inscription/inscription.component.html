@@ -1,0 +1,67 @@
+<div class="container">
+  <br>
+  <hr>
+  <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Inscrivez-vous</h4>
+      <form [formGroup]="f" (ngSubmit)="onFormSubmit(f.value)">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input class="form-control" formControlName="username" placeholder="Pseudo" type="text">
+        </div> 
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input class="form-control" formControlName="email" placeholder="Email" type="email">
+        </div> 
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input class="form-control" formControlName="password" placeholder="Mot de passe" type="password">
+        </div> 
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input class="form-control" formControlName="firstname" placeholder="Prénom" type="text">
+        </div> 
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input class="form-control" formControlName="lastname" placeholder="Nom" type="text">
+        </div> 
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <input class="form-control" formControlName="phonenumber" placeholder="N° Téléphone" type="text">
+        </div> 
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input class="form-control" formControlName="address" placeholder="Adresse" type="text">
+        </div> 
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input class="form-control" formControlName="postcode" placeholder="Code postal" type="text">
+        </div> 
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+        </div> 
+        <p class="message" *ngIf="dataSaved">
+          {{message}}
+        </p>
+    
+      </form>
+    </article>
+  </div>
+  </div>
+  

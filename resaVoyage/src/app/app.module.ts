@@ -25,6 +25,7 @@ import {PaymentService} from './services/payment.service';
 import { FormsModule } from '@angular/forms';
 import { CommentaireComponent } from './commentaire/commentaire.component';
 import { CommentaireService } from './services/commentaire.service';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 
@@ -41,6 +42,7 @@ import { CommentaireService } from './services/commentaire.service';
     PaymentComponent,
     AddCommandeComponent,
     CommentaireComponent,
+    InscriptionComponent,
    
   ],
   imports: [

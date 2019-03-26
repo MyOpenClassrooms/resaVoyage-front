@@ -21,6 +21,8 @@ export const apiCommentaire= apiPrefix + '/commentaire';
 
 export const apiAddCommentaire= apiPrefix + '/commentaire/commentaire/save';
 
+export const apiInscription= apiPrefix + '/utilisateur/utilisateur/save';
+
 
 
 

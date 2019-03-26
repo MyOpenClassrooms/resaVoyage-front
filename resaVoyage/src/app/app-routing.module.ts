@@ -9,6 +9,7 @@ import {DetailAventureComponent} from "./detail-aventure/detail-aventure.compone
 import { PaymentComponent } from './payment/payment.component';
 import { AddCommandeComponent } from './add-commande/add-commande.component';
 import { CommentaireComponent } from './commentaire/commentaire.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
   { path : '', component : AventureComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path : 'payment/commande/:id', component : PaymentComponent },
   { path : 'category', component : CategoryComponent },
   { path : 'login', component : LoginComponent},
+  { path : 'signin', component : InscriptionComponent},
   {path: 'commentaire/:id', component: CommentaireComponent}
 ];
 
