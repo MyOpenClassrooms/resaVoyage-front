@@ -1,7 +1,9 @@
 <!-- Team -->
 <section id="team" class="pb-5">
   <div class="container">
+      <header class="jumbotron my-4">
     <h5 class="section-title h1">Nos categories d'aventures</h5>
+    </header>
     <div class="row">
       <!-- Team member -->
       <div *ngFor="let cat of allCategories" class="col-xs-12 col-sm-6 col-md-4">
@@ -21,7 +23,7 @@
                 <div class="card-body text-center mt-4">
                   <h4 class="card-title">{{cat.title}}</h4>
                   <p class="card-text">{{cat.description}}</p>
-                    <a class="btn btn-success" href="https://www.google.fr" role="button">Voir activité {{cat.title}}</a>
+                  <a class="btn btn-primary" routerLink="/aventureByCat/{{cat.id}}">Voir activité {{cat.title}}</a>
                 </div>
               </div>
             </div>

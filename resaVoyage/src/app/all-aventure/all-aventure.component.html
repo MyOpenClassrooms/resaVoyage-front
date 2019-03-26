@@ -1,0 +1,25 @@
+<div class="container">
+
+  <h5 class="section-title h1" style="color: white; text-align: center">Toutes nos aventures : </h5>
+  <hr style="color: white">
+  <!-- Page Features -->
+  <div class="row text-center">
+
+    <div *ngFor="let avlist of allAventures" class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{avlist.image}}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">{{avlist.title}}</h4>
+          <p class="card-text">{{avlist.description | truncate:[100] }}</p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary" routerLink= "/aventure/{{avlist.id}}">Voir details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->

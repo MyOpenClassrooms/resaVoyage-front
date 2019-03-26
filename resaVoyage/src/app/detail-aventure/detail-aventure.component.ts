@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class DetailAventureComponent implements OnInit {
 
-  public aventure:Aventure;
+  aventure: Aventure = { id: null, title: '', description: '', location: '', price: null, image: '',nbparticipant: null, sessions: null, category_id: null };
   private id: number;
   private aventureId: number;
 

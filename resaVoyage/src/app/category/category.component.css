@@ -7,16 +7,16 @@
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #108d6f;
-  border-color: #108d6f;
+  background-color: #007bff;
+  border-color: #007bff;
   box-shadow: none;
   outline: none;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #007b5e;
-  border-color: #007b5e;
+  background-color: #3f51b5;
+  border-color: #3f51b5;
 }
 
 section {
@@ -25,14 +25,15 @@ section {
 
 section .section-title {
   text-align: center;
-  color: #007b5e;
-  margin-bottom: 50px;
+  color: #007bff;
+  /* margin-bottom: 50px; */
   text-transform: uppercase;
 }
 
+
 #team .card {
   border: none;
-  background: #dee2e6b8;
+  background: #e9ecefb3;
 }
 
 .image-flip:hover .backside,
@@ -78,7 +79,7 @@ section .section-title {
   position: absolute;
   top: 0;
   left: 0;
-  background: white;
+  background: #e9ecef36;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -o-transform: rotateY(-180deg);
@@ -114,16 +115,19 @@ section .section-title {
 
 .backside .card a {
   font-size: 18px;
-  color: #007b5e !important;
+  color: white !important;
 }
 
 .frontside .card .card-title,
 .backside .card .card-title {
-  color: #007b5e !important;
+  color: #007bff !important;
 }
 
 .frontside .card .card-body img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+}
+.jumbotron {
+  background-color: #e9ecefc9!important;
 }

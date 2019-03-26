@@ -17,7 +17,7 @@ tab {
 }
 
 .container {
-    background-color: white;
+ 
     padding-top:20px;
 }
 
@@ -124,6 +124,7 @@ input[type="file"]{
 }
 .comment-box .media-body p {
     border: 1px solid #ddd;
+    background-color: #e9ecef;
     padding: 10px;
 }
 .comment-box .media-body .media p {
