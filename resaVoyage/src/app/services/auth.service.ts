@@ -1,7 +1,7 @@
 import { Injectable, ɵConsole } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { apiLogin, ROLE_ADMIN, apiUserByusername } from 'src/shared/constant';
+import { apiLogin, ROLE_ADMIN, apiUserByusername, apiInscription } from 'src/shared/constant';
 import { map, tap } from 'rxjs/operators';
 import { User } from '../models/user';
 import * as moment from 'moment';
@@ -45,6 +45,12 @@ export class AuthService {
     // remove user from local storage to log user out   
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+  }
+
+  signin(utilisateur: User): Observable<User> {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.post<User>(apiInscription, utilisateur, httpOptions);
+
   }
 
 
