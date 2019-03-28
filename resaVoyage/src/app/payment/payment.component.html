@@ -12,8 +12,6 @@
  
   <div class="row">
     <aside class="col-sm-6">
-  <p>Payment form1</p>
-  
   <article class="card">
       <div class="card-header">
           <div class="row display-tr" >
@@ -27,10 +25,8 @@
   <!--  <span class="payment-message alert alert-success">{{message}}</span>  -->
  <p>  Montant de la commande : <b>{{ prix}} €</b></p>
   <form>   
-    <p *ngIf="message" class="alert alert-success payment-message">{{message}}</p>
- <p  *ngIf="errorMessage" class="alert alert-danger payment-message">{{errorMessage}}</p>
-   
- 
+    <p *ngIf="saved == true" class="alert alert-success payment-message">{{message}}</p>
+    <p *ngIf="errorMessage" class="alert alert-danger payment-message">{{errorMessage}}</p>
   <div class="form-group">
   <label for="cardNumber">Numéro de carte</label>
   <div class="input-group">

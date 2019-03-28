@@ -20,11 +20,17 @@ export class PaymentComponent implements OnInit {
   errorMessage: string;
   idCommand: number;
   prix;
+  return: string = '';
   commandeUpdated: Commande;
+  returnUrl: string;
+  saved = false;
   ngOnInit() {
     this.idCommand = this.activatedRoute.snapshot.params['id'];
     this.prix = this.activatedRoute.snapshot.params['prix'];
     this.getCommandeById(this.idCommand);
+    this.activatedRoute.queryParams.subscribe(params => this.return = params['return'] || '/commande');
+   
+    //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/commande';
   }
   chargeCreditCard() {
     let form = document.getElementsByTagName("form")[0];
@@ -37,14 +43,17 @@ export class PaymentComponent implements OnInit {
       if(form.cardNumber.value != '' && form.expMonth.value != '' && form.expYear.value != '' && form.cvc.value != ''){
       if (status === 200) {
         let token = response.id;
-        this.chargeCard(token, this.prix);
+        this.paymentService.chargeCard(token, this.prix);
+       // this.chargeCard(token, this.prix);
         this.getUpdateCommande(this.idCommand, this.commandeUpdated);
-        this.message = `Paiment effectué avec succés ${response.card.id}.`;
-        console.log("message",   this.message)
+        this.saved = true;
+       // this.router.navigate([this.return]);
+       console.log("saveddddddddd", this.saved);
         form.cardNumber.value = '';
         form.expMonth.value = '';
         form.expYear.value = '';
-      } else {
+      } 
+      else {
        // this.errorMessage = response.error.message;
         console.log("messageeeeeee error", this.errorMessage);
       }
@@ -58,7 +67,6 @@ export class PaymentComponent implements OnInit {
     .pipe(first()).subscribe(res => { 
       res.status = true;
       this.commandeUpdated = res;
-     console.log("commmdeupdated ",  this.commandeUpdated )
   });
   
   }
@@ -113,9 +121,10 @@ export class PaymentComponent implements OnInit {
   getUpdateCommande(id, commande) {
     return this.commandeService.updateCommande(id,commande )
     .pipe(first()).subscribe(res => { 
-      res.status = true;
+     res.status = true;
      this.commandeUpdated = res;
-     console.log("commmdeupdated ",  res)
+     this.message = `Paiment effectué avec succés`;
+     console.log("message",   this.message)
   });
   
   }
